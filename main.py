@@ -2,9 +2,14 @@ import streamlit as st
 import numpy as np
 import pickle
 
-# load the model using pickle
-with open('decision_tree_model.pkl', 'rb') as file:  
-    model = pickle.load(file)
+# Define the function to load the model
+def load_pickle_model(model_path):
+    with open(model_path, 'rb') as file:
+        model = pickle.load(file)
+    return model
+
+# Load the model
+model = load_pickle_model('./decision_tree_model.pkl')
 
 # Define the structure of your web app
 def main():
